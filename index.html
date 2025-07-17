@@ -2,194 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LandscaperDesignerTool</title>
   <style>
-    /* Global styles */
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
-      background-color: #ffffff;
+      background-color: #f4f4f4;
       color: #333;
     }
 
-    /* Navigation */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     header {
-      background-color: white;
+      background-color: #2b7a0b;
+      color: white;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      background-color: green;
-      color: white;
-      padding: 10px 16px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 16px;
-      text-decoration: none;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: green;
-    }
-
-    /* Hero section */
-    .hero {
-      padding: 80px 40px;
-      background-color: #f5f5f5;
-    }
-
-    .hero-content {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-      max-width: 1200px;
-      margin: auto;
       flex-wrap: wrap;
     }
 
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      background-color: white;
+      color: #2b7a0b;
+      padding: 8px 16px;
+      border-radius: 20px;
     }
 
-    .hero-text h1 {
-      font-size: 50px;
-      margin-bottom: 0px;
-      color: #253748;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    .hero-text h2 {
-      font-size: 30px;
-      margin-bottom: 0px;
-      color: #00670f;
+    nav a {
+      font-weight: 500;
+      color: white;
     }
 
-    .hero-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #444;
+    .demo-button {
+      border: 2px solid white;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
 
-.hero-images {
-  flex: 1;
-  min-width: 300px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
-  gap: 10px;
-  max-width: 400px;
-}
+    .demo-button:hover {
+      background-color: white;
+      color: #2b7a0b;
+    }
 
-.hero-images img:nth-child(1) {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  width: 100%;
-  border-radius: 8px;
-}
+    .hero {
+      background: url("Médias/hero.jpg") center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
 
-.hero-images img:nth-child(2) {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  width: 100%;
-  border-radius: 8px;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.5);
+    }
 
-.hero-images img:nth-child(3) {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  width: 100%;
-  border-radius: 8px;
-}
+    .hero h1 {
+      position: relative;
+      font-size: 40px;
+      background-color: rgba(0, 100, 0, 0.6);
+      padding: 15px 25px;
+      border-radius: 12px;
+    }
 
-.hero-images img:nth-child(4) {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-  width: 100%;
-  border-radius: 8px;
-}
-
-.hero-images img:nth-child(5) {
-  grid-column: 2 / 3;
-  grid-row: 3 / 4;
-  width: 100%;
-  border-radius: 8px;
-}
-
-
-    /* Why us section */
-.hero-text h1 {
-  font-size: 50px;
-  margin-bottom: 5px; /* réduit l'espace en dessous */
-  color: #253748;
-}
-
-.hero-text h2 {
-  font-size: 30px;
-  margin-top: 0px;   /* colle le h2 au h1 */
-  margin-bottom: 0px;
-  color: #00670f;
-}
-
-
-    .section-why p {
-      font-size: 18px;
-      color: #444;
-      max-width: 700px;
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: auto;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2b7a0b;
+    }
+
+    .section p {
+      font-size: 18px;
       line-height: 1.6;
+      color: #555;
+    }
+
+    .image-block {
+      margin-top: 30px;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .image-block img {
+      width: 100%;
+      display: block;
+    }
+
+    .pricing {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .price-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #2b7a0b;
+    }
+
+    .price-card p {
+      font-size: 18px;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #2b7a0b;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact a:hover {
+      background-color: #1e5306;
+    }
+
+    footer {
+      background-color: #2b7a0b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 28px;
+        padding: 10px 16px;
+      }
+      .section h2 {
+        font-size: 24px;
+      }
+      .section p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <header>
-    <a href="#home" class="logo">LsDT</a>
+    <div class="logo">LsDT</div>
     <nav>
-      <a href="#why-us">Why us?</a>
+      <a href="#features">Features</a>
+      <a href="#mockup">Preview</a>
+      <a href="#demo" class="demo-button">Book a Demo</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Welcome to,</h1>
-        <h2>LandscaperDesignerTool</h2>
-        <p>A fast and simple landscaping design tool built for professionals and passionate users alike.</p>
-      </div>
-      <div class="hero-images">
-        <img src="Médias/LS1.webp" alt="LS1" />
-        <img src="Médias/LS2.webp" alt="LS2" />
-        <img src="Médias/LS3.webp" alt="LS3" />
-        <img src="Médias/LS4.webp" alt="LS4" />
-        <img src="Médias/LS5.webp" alt="LS5" />
-      </div>
+  <section class="hero">
+    <h1>Welcome to LandscaperDesignerTool</h1>
+  </section>
+
+  <section id="features" class="section">
+    <h2>Powerful Features</h2>
+    <p>Design your garden in minutes with our intuitive and easy-to-use landscaping tools. Drag and drop plants, paths, structures, and visualize your space instantly.</p>
+    <div class="image-block">
+      <img src="Médias/features.jpg" alt="Features preview">
     </div>
   </section>
 
-  <!-- Why Us Section -->
-  <section id="why-us" class="section-why">
-    <h2>Why Choose Us?</h2>
-    <p>Because LandscaperDesignerTool offers intuitive features, easy-to-use design tools, and professional results in minutes.</p>
+  <section id="mockup" class="section">
+    <h2>Application Preview</h2>
+    <p>See what your garden will look like before lifting a shovel. Save time, money, and make confident design choices.</p>
+    <div class="image-block">
+      <img src="Médias/mockup.jpg" alt="App mockup">
+    </div>
   </section>
+
+  <section id="demo" class="section">
+    <h2>Book Your Free Demo</h2>
+    <p>You can request a free 2-week demo by contacting us. After the trial, you can subscribe for €98/month or purchase lifetime access for €2000.</p>
+
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Subscription</h3>
+        <p>€98/month<br>Cancel anytime</p>
+      </div>
+      <div class="price-card">
+        <h3>Lifetime Access</h3>
+        <p>One-time payment<br>€2000 forever</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <p><strong>Ready to try it?</strong></p>
+      <a href="mailto:danyzacixmie@gmail.com?subject=Demo Request - LandscaperDesignerTool">Request Demo by Email</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LandscaperDesignerTool. All rights reserved.
+  </footer>
 
 </body>
 </html>
